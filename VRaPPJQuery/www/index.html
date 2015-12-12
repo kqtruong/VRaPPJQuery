@@ -1,0 +1,666 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="themes/aForNightBforDay.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="scripts/JQuery.mobile-1.4.5/jquery.mobile.structure-1.4.5.css" />
+    <!-- replaces all header and footer outside of data-role="page" -->
+    <script src="scripts/JQuery.mobile-1.4.5/jquery-2.1.4.js"></script>
+    <script src="scripts/JQuery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+    <!-- phonegap stuff
+        - phonegapNavigationEnabled boolean, default: false
+    Replace calls to window.history.back with PhoneGap's navigation helper where it is available. This addresses navigation issues on page refresh in Android PhoneGap applications using jQuery Mobile.
+       -allowCrossDomainPages boolean, default: false
+    When jQuery Mobile attempts to load an external page, the request runs through $.mobile.loadPage(). This will only allow cross-domain requests if $.mobile.allowCrossDomainPages is set to true. Because the jQuery Mobile framework tracks what page is being viewed within the browser's location hash, it is possible for a cross-site scripting (XSS) attack to occur if the XSS code in question can manipulate the hash and set it to a cross-domain URL of its choice. This is the main reason that the default setting for $.mobile.allowCrossDomainPages is set to false. In PhoneGap apps that must "phone home" by loading assets off a remote server, both the $.support.cors AND $.mobile.allowCrossDomainPages must be set to true.
+         -->
+     
+    <!-- VRaPPJQuery references -->
+    <link href="css/index.css" rel="stylesheet" />
+    <title>VRaPPJQuery</title>
+</head>
+<body>
+    
+    <!-- This is the first page -->
+        <section id="home" data-role="page" data-position="fixed">
+            <div data-role="header" style="overflow:hidden;"  >
+                <h1>VRaPP 2.0</h1>
+                <a href="#" data-icon="gear" data-iconpos="notext" class="ui-btn-right" >Options</a>
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#" class="ui-btn ui-icon-plus ui-btn-icon-top ui-btn-active ui-state-persist"></a></li>
+                        <li><a href="#secondpage" class="ui-btn ui-icon-minus ui-btn-icon-top"></a></li>
+                        <li><a href="#" class="ui-btn ui-icon-check ui-btn-icon-top"></a></li>
+                        <li><a href="#" class="ui-btn ui-icon-grid ui-btn-icon-top"></a></li>
+                    </ul>
+                </nav>
+            </div> 
+            <div role="main" class="ui-content">
+                <ul data-role="listview" id="lessonlist"></ul>
+                <p>&nbsp;</p>
+                <p><a href="#two" class="ui-btn ui-shadow ui-corner-all">About</a></p>
+            </div>
+            <div class="ui-content" role="main">
+                <p>Search by State</p>
+                <a href="page.html" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="flip"> page.html</a>
+                <!-- snippets
+                    <li><a href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="flip"></a></li>
+                    <!-- Forms -->
+                <!-- snippets
+                    <section id="" data-role="page">
+                        <header data-role="header">
+                            <h1> VRaPP v2.0 </h1>
+                        </header>
+                        <div class="ui-content">
+                            <a href="#home" class="ui-btn ui-icon-arrow-l ui-btn-icon-top" data-transition="flip">Home</a>
+                            
+                        </div>
+                    </section>
+                     -->
+                <ul data-role="listview" data-filter="true" data-filter-placeholder="Filter by Name" data-inset="true">
+                    <li><a href="#internalpage" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="flip">internal page to link to external page</a></li>
+                    <li><a href="#flipswitch" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="flip">flipswitch</a></li>
+                    <li><a href="#form" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="flip">form</a></li>
+                    <li><a href="#dialog" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="flip">popup dialog</a></li>
+                    <li><a href="#btn" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="flip">btn</a></li>
+                    <li><a href="#pagetransition" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="flip">page transition </a></li>
+                    <li><a href="#filterable" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="flip">filterable </a></li>
+                    <li><a href="#checkbox" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="flip">checkbox  </a></li>
+                    <li><a href="#selectlist" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="flip"> selectlist </a></li>
+                    <li><a href="#listview" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="flip">listview</a></li>
+                    <li><a href="#grid" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="flip">grid</a></li>
+                    <li><a href="#collapsible" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="flip">collapsible</a></li>
+                   </ul>
+</div>
+            <footer data-role="footer" data-position="fixed" data-theme="a">
+                <h1>All Rights Reserved</h1>
+                <input type="button" id="capturePic" value="capture a picture..." />
+                <div id="currentPic"/>
+            </footer>
+        </section>
+    
+    <!-- Internal page that links to an external page -->
+    <section id="internalpage" data-role="page">
+            <header data-role="header" >
+                <h1>External Page Linking</h1>
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#home" class="ui-btn ui-icon-plus ui-btn-icon-top"></a></li>
+                        <li><a href="#" class="ui-btn ui-icon-minus ui-btn-icon-top ui-btn-active ui-state-persist"></a></li>
+                        <li><a href="#" class="ui-btn ui-icon-check ui-btn-icon-top"></a></li>
+                        <li><a href="#" class="ui-btn ui-icon-grid ui-btn-icon-top"></a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="ui-content">
+                <p><a href="#home" class="ui-btn ui-icon-arrow-r ui-btn-icon-top" data-transition="flip">Home</a></p>
+                <p><a href="home.html" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="flip">home.html</a></p>
+                <p><a href="http://app.yolocrew.com" rel="external" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="flip">Link to an external page outside of jQuery Mobile system</a></p>
+            </div>
+        </section>
+   
+    <!-- FlipSwitch -->
+    <div id="flipswitch" data-role="page" >
+            <div data-role="header">
+                <h1>Page Content Header</h1>
+            </div>
+            <div class="ui-content" role="main">
+                <p><a href="#home" class="ui-btn" data-transition="slideup">home</a></p>
+                Sliders, Flipswitches:
+                <form method="get" action="">
+                    <fieldset class="ui-field-contain">
+                        <legend>Numerical Slider Example</legend>
+
+                        <label for="num">Enter a Number</label>
+                        <input type="range" name="num" id="num" value="25" min="0" max="100" />
+                    </fieldset>
+                </form>
+                <form method="get" action="">
+                    <fieldset class="ui-field-contain">
+                        <label for="ts1">Flipswitch:</label>
+                        <select name="ts1" id="ts1" data-role="flipswitch">
+                            <option value="No" selected="selected">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </fieldset>
+                    <fieldset class="ui-field-contain">
+                        <label for="ts2">Flipswitch:</label>
+                        <input name="ts2" type="checkbox" checked="checked" data-role="flipswitch" />
+                    </fieldset>
+                </form>
+            </div>
+        </div>   
+
+    <!-- Forms -->
+    <section id="form" data-role="page" >
+            <header data-role="header">
+                <h1>External Page Linking</h1>
+            </header>
+            <div class="ui-content">
+                <p><a href="#home" class="ui-btn ui-icon-arrow-r ui-btn-icon-top" data-transition="flip">Home</a></p>
+                <form method="get" action="">
+                    <fieldset class="ui-field-contain">
+                        <label for="address">Your Address:</label>
+                        <input type="text" name="address" id="address" value="" placeholder="Your Address" />
+                        <label for="age">Your Age:</label>
+                        <input type="number" name="age" id="age" value="" placeholder="Your Age" />
+                        <label for="email">Your email: </label>
+                        <input type="email" name="email" id="email" value="" placeholder="Your Email" />
+                        <label for="birthdate">Your birthdate: </label>
+                        <input type="date" name="birthdate" id="birthdate" value="" placeholder="Your Birthdate" />
+                    </fieldset>
+                    <div class="ui-field-contain">
+                        <label for="search">Search the site:</label>
+                        <input type="search" name="search" id="search" value="" placeholder="Search the site" />
+                    </div>
+                    <div class="ui-field-contain">
+                        <label for="details">Tell us about you!</label>
+                        <textarea id="details"></textarea>
+                    </div>
+                </form>
+            </div>
+        </section>
+   
+    <!--  dialog -->
+    <div id="dialog" data-role="page" data-dialog="true" data-close-btn="right" data-theme="a">
+        <div data-role="header">
+            <h1>Contact Us</h1>
+        </div>
+        <div class="ui-content">
+            <div class="ui-content">
+                <form method="get" action="">
+                    <label for="basicfield">Basic Text Field:</label>
+                    <input type="text" name="basicfield" id="basicfield" value="" placeholder="Placeholder Text" />
+
+                    <label for="username" class="ui-hidden-accessible">Your Name:</label>
+                    <input type="text" name="username" id="username" value="" placeholder="Your Name" />
+
+                    <div class="ui-field-contain">
+                        <label for="address">Your Address:</label>
+                        <input type="text" name="address" id="address" value="" placeholder="Your Address" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div data-role="footer"><h2>Submit</h2></div>
+    </div>
+
+    <!-- btn -->
+    <section id="btn" data-role="page">
+        <header data-role="header">
+            <h1>External Page Linking</h1>
+        </header>
+        <div class="ui-content">
+            <p><a href="#home" class="ui-btn ui-icon-arrow-r ui-btn-icon-top" data-transition="flip">Home</a></p>
+            
+            <!-- automatic conversion of a button element -->
+            <p>This is a &lt;button&gt; element:</p>
+            <button id="btn1" class="ui-btn" disabled="disabled">button element</button>
+            <!-- input elements -->
+            <p>&lt;input&gt; elements:</p>
+            <input type="button" value="Button" />
+            <!-- vertical vs. inline buttons -->
+            <p>100% Horizontal vs. Inline buttons:</p>
+            <a href="#" class="ui-btn">Button 1</a>
+            <a href="#" class="ui-btn ui-shadow">Button 2</a>
+            <a href="#" class="ui-btn ui-btn-inline">Button 3</a>
+            <a href="#" class="ui-btn ui-btn-inline">Button 4</a>
+
+            <!-- grouping buttons together in a controlgroup -->
+            <p>These buttons are part of a control group:</p>
+            <div data-role="controlgroup" data-type="horizontal">
+                <button class="ui-btn">button a</button>
+                <button class="ui-btn">button b</button>
+                <button class="ui-btn">button c</button>
+            </div>
+    </section>
+
+    <!-- Page transition -->
+    <section id="pagetransition" data-role="page">
+            <header data-role="header">
+                <h1> VRaPP v2.0 </h1>
+            </header>
+            <div class="ui-content">
+                <p><a href="#home" class="ui-btn ui-icon-arrow-t ui-btn-icon-top" data-transition="flip">Home</a></p>
+                <p>Let's try some transitions!</p>
+                <p><a href="#home" class="ui-btn ui-shadow"data-transition="fade">Fade to #home</a></p>
+                <p><a href="#home" class="ui-btn ui-shadow"data-transition="flip">Flip to #home</a></p>
+                <p><a href="#home" class="ui-btn ui-shadow"data-transition="pop">Pop to #home</a></p>
+                <p><a href="#home" class="ui-btn ui-shadow"data-transition="slide">Slide to #home</a></p>
+                <p><a href="#home" class="ui-btn ui-shadow"data-transition="slidedown">Slide down to #home</a></p>
+                <p><a href="#home" class="ui-btn ui-shadow"data-transition="slideup">Slide up to #home</a></p>
+            </div>
+        </section>
+    
+    <!-- Filterable -->
+    <section id="filterable" data-role="page">
+            <header data-role="header">
+                <h1> VRaPP v2.0 </h1>
+            </header>
+            <div class="ui-content">
+                <p><a href="#home" class="ui-btn ui-icon-arrow-t ui-btn-icon-top" data-transition="flip">Home</a></p>
+                <form>
+                    <input id="pre-rendered-filterable" data-type="search">
+                </form>
+                <h2>Search a State</h2>
+                <div class="ui-controlgroup ui-controlgroup-vertical ui-corner-all"
+                        data-role="controlgroup"
+                        data-filter="true"
+                        data-input="#pre-rendered-filterable"
+                        data-filter-reveal="true"
+                        data-enhanced="true">
+                    <div class="ui-controlgroup-controls">
+                        <a href="#" class="ui-screen-hidden" data-role="button">California</a>
+                        <a href="#" class="ui-screen-hidden" data-role="button">Alabama</a>
+                        <a href="#" class="ui-screen-hidden" data-role="button">Missouri</a>
+                        <a href="#" class="ui-screen-hidden" data-role="button">Nevada</a>
+                    </div>
+                </div>
+            </div>                    
+        </section>
+         
+    <!-- Checkbox -->
+    <section id="checkbox" data-role="page">
+                        <header data-role="header">
+                            <h1> VRaPP v2.0 </h1>
+                        </header>
+                        <div class="ui-content">
+                            <p><a href="#home" class="ui-btn ui-icon-arrow-t ui-btn-icon-top" data-transition="flip">Home</a></p>
+                            Radiobuttons and Checkboxes:
+                            <form method="get" action="">
+                                <fieldset data-role="controlgroup">
+                                    <legend>Select an option:</legend>
+                                    <label for="rb1">Radio Button 1</label>
+                                    <input type="radio" name="rb" id="rb1" value="rb1" />
+                                    <label for="rb2">Radio Button 2</label>
+                                    <input type="radio" name="rb" id="rb2" value="rb2" checked="checked" />
+                                    <label for="rb3">Radio Button 3</label>
+                                    <input type="radio" name="rb" id="rb3" value="rb3" />
+                                    <label for="rb4">Radio Button 4</label>
+                                    <input type="radio" name="rb" id="rb4" value="rb4" />
+                                </fieldset>
+                                <fieldset data-role="controlgroup" data-type="horizontal">
+                                    <legend>Select an option:</legend>
+                                    <label for="rb5">Option 1</label>
+                                    <input type="radio" name="rbtn" id="rb5" value="rb5" checked="checked" />
+                                    <label for="rb6">Option 2</label>
+                                    <input type="radio" name="rbtn" id="rb6" value="rb6" />
+                                    <label for="rb7">Option 3</label>
+                                    <input type="radio" name="rbtn" id="rb7" value="rb7" />
+                                </fieldset>
+                                <fieldset data-role="controlgroup">
+                                    <legend>Agree to the terms:</legend>
+                                    <label for="cb1">I agree</label>
+                                    <input type="checkbox" name="cb1" id="cb1" />
+                                </fieldset>
+                                <fieldset data-role="controlgroup">
+                                    <legend>Choose Programming Fuel:</legend>
+                                    <label for="pf1">Red Bull</label>
+                                    <input type="checkbox" name="pf1" id="pf1" />
+                                    <label for="pf2">Mountain Dew</label>
+                                    <input type="checkbox" name="pf2" id="pf2" />
+                                    <label for="pf3">Dr. Pepper</label>
+                                    <input type="checkbox" name="pf3" id="pf3" />
+                                </fieldset>
+                            </form>
+                        </div>
+                    </section>
+    
+    <!-- Select list -->
+    <section id="selectlist" data-role="page">
+     <header data-role="header">
+        <h1> VRaPP v2.0 </h1>
+     </header>
+     <div class="ui-content">
+                            <a href="#home" class="ui-btn ui-icon-arrow-t ui-btn-icon-top" data-transition="flip">Home</a>
+                            Select Lists:
+                            <form method="get" action="">
+                                <fieldset class="ui-field-contain">
+                                    <label for="select1">Basic Select Menu:</label>
+                                    <select name="select1" id="select1">
+                                        <option value="value1">Value 1</option>
+                                        <option value="value2" disabled="disabled">Value 2</option>
+                                        <option value="value3">Value 3</option>
+                                        <option value="value4">Value 4</option>
+                                    </select>
+                                </fieldset>
+                            </form>
+
+
+                            <form method="get" action="">
+                                <fieldset class="ui-field-contain">
+                                    <label for="select1">Custom Select Menu:</label>
+                                    <select name="select1" id="select1" data-native-menu="false">
+                                        <option>Choose One:</option>
+                                        <optgroup label="First Group">
+                                            <option value="value1">Value 1</option>
+                                            <option value="value2" disabled="disabled">Value 2</option>
+                                            <option value="value3">Value 3</option>
+                                            <option value="value4">Value 4</option>
+                                        </optgroup>
+                                        <optgroup label="Second Group">
+                                            <option value="value5">Value 5</option>
+                                            <option value="value6">Value 6</option>
+                                            <option value="value7">Value 7</option>
+                                            <option value="value8">Value 8</option>
+                                        </optgroup>
+                                    </select>
+                                </fieldset>
+
+                                <fieldset class="ui-field-contain">
+                                    <label for="select1">Multiple Enabled:</label>
+                                    <select name="select1" id="select2" multiple="multiple" data-native-menu="false">
+                                        <option>Select Options:</option>
+                                        <option value="value1">Value 1</option>
+                                        <option value="value2">Value 2</option>
+                                        <option value="value3">Value 3</option>
+                                        <option value="value4">Value 4</option>
+                                        <option value="value5">Value 5</option>
+                                        <option value="value6">Value 6</option>
+                                    </select>
+                                </fieldset>
+                            </form>
+
+                            <form method="get" action="">
+                                <div class="ui-field-contain">
+                                    <fieldset data-role="controlgroup" data-type="vertical">
+                                        <legend>Expiration Date:</legend>
+
+                                        <label for="month">Select Month</label>
+                                        <select name="month" id="month" data-native-menu="false">
+                                            <option value="Jan">January</option>
+                                            <option value="Feb">February</option>
+                                            <option value="Mar">March</option>
+                                            <option value="Apr">April</option>
+                                            <option value="May">May</option>
+                                            <option value="Jun">June</option>
+                                            <option value="Jul">July</option>
+                                            <option value="Aug">August</option>
+                                            <option value="Sep">September</option>
+                                            <option value="Oct">October</option>
+                                            <option value="Nov">November</option>
+                                            <option value="Dec">December</option>
+                                        </select>
+
+                                        <label for="year">Select Year</label>
+                                        <select name="year" id="year">
+                                            <option value="2017">2017</option>
+                                            <option value="2016">2016</option>
+                                            <option value="2015">2015</option>
+                                            <option value="2014">2014</option>
+                                            <option value="2013">2013</option>
+                                            <option value="2012">2012</option>
+                                            <option value="2011">2011</option>
+                                        </select>
+                                    </fieldset>
+                                </div>
+                            </form>
+                        </div>
+    </section>
+
+    <!-- Listview -->
+    <section id="listview" data-role="page">
+                        <header data-role="header">
+                            <h1> VRaPP v2.0 </h1>
+                        </header>
+                        <div class="ui-content">
+                            <a href="#home" class="ui-btn ui-icon-arrow-r ui-btn-icon-top" data-transition="flip">Home</a>
+                            <h1>Basic List Views:</h1>
+                            <h2>Ordered List Example</h2>
+                            <ol data-role="listview" data-filter="true" data-filter-placeholder="Filter by Name">
+                                <li>List Item 1</li>
+                                <li>List Item 2</li>
+                                <li><a href="#">List Item 3</a></li>
+                                <li><a href="#">List Item 4</a></li>
+                                <li><a href="#">List Item 5</a></li>
+                                <li><a href="#">List Item 6</a></li>
+                            </ol>
+                            <h2>Unordered List Example</h2>
+                            <ul data-role="listview" data-filter="true" data-filter-placeholder="Filter by Name">
+                                <li>List Item 1</li>
+                                <li>List Item 2</li>
+                                <li data-role="list-divider">Divider</li>
+                                <li><a href="#">List Item 3</a></li>
+                                <li><a href="#">List Item 4</a></li>
+                                <li><a href="#">List Item 5</a></li>
+                                <li><a href="#">List Item 6</a></li>
+                            </ul>
+
+                            <h1>Count Bubbles:</h1>
+                                <h2>Ordered List Example</h2>
+                                <ol data-role="listview" data-filter="true" data-filter-placeholder="Filter by Name">
+                                    <li><a href="#">List Item 1 <span class="ui-li-count">20</span></a></li>
+                                    <li><a href="#">List Item 2 <span class="ui-li-count">7</span></a></li>
+                                    <li><a href="#">List Item 3 <span class="ui-li-count">45</span></a></li>
+                                    <li><a href="#">List Item 4 <span class="ui-li-count">2</span></a></li>
+                                    <li><a href="#">List Item 5 </a></li>
+                                    <li><a href="#">List Item 6 <span class="ui-li-count">10</span></a></li>
+                                </ol>
+                                <h2>Unordered List Example</h2>
+                                <ul data-role="listview" data-filter="true" data-filter-placeholder="Filter by Name">
+                                    <li><a href="#">List Item 1 <span class="ui-li-count">20</span></a></li>
+                                    <li><a href="#">List Item 2 <span class="ui-li-count">7</span></a></li>
+                                    <li><a href="#">List Item 3 <span class="ui-li-count">45</span></a></li>
+                                    <li><a href="#">List Item 4 <span class="ui-li-count">2</span></a></li>
+                                    <li><a href="#">List Item 5 </a></li>
+                                    <li><a href="#">List Item 6 <span class="ui-li-count">10</span></a></li>
+                                </ul>
+
+                                <h1>Icons:</h1>
+                                <h2>Ordered List Example</h2>
+                                <ol data-role="listview" data-filter="true" data-filter-placeholder="Filter by Country">
+                                    <li><a href="#"><img src='scripts/JQuery.mobile-1.4.5/images/icons-png/calendar-black.png' class='ui-li-icon' />United States</a></li>
+                                    <li><a href="#"><img src='scripts/JQuery.mobile-1.4.5/images/icons-png/calendar-black.png' class='ui-li-icon' />Great Britain</a></li>
+                                    <li><a href="#"><img src='scripts/JQuery.mobile-1.4.5/images/icons-png/calendar-black.png' class='ui-li-icon' />Germany</a></li>
+                                    <li><a href="#"><img src='scripts/JQuery.mobile-1.4.5/images/icons-png/calendar-black.png' class='ui-li-icon' />France</a></li>
+                                </ol>
+                                <h2>Unordered List Example</h2>
+                                <ul data-role="listview" data-filter="true" data-filter-placeholder="Filter by Country">
+                                    <li><a href="#"><img src='scripts/JQuery.mobile-1.4.5/images/icons-png/calendar-white.png' class='ui-li-icon' />United States</a></li>
+                                    <li><a href="#"><img src='scripts/JQuery.mobile-1.4.5/images/icons-png/camera-black.png' class='ui-li-icon' />Great Britain</a></li>
+                                    <li><a href="#"><img src='scripts/JQuery.mobile-1.4.5/images/icons-png/camera-white.png' class='ui-li-icon' />Germany</a></li>
+                                    <li><a href="#"><img src='scripts/JQuery.mobile-1.4.5/images/icons-png/clock-white.png' class='ui-li-icon' />France</a></li>
+                                </ul>
+                            <h1>Split buttons:</h1>
+                                <ul data-role="listview" data-divider-theme="b" data-filter="true" data-filter-placeholder="Filter by State">
+                                    <li data-role="list-divider">America</li>
+                                    <li>California</li>
+                                    <li>
+                                        <a href="#winedetails">Wine #1</a>
+                                        <a href="#winenotes">Wine Notes</a>
+                                    </li>
+                                    <li>
+                                        <a href="#winedetails">Wine #2</a>
+                                        <a href="#winenotes">Wine Notes</a>
+                                    </li>
+                                    <li>
+                                        <a href="#winedetails">Wine #3</a>
+                                        <a href="#winenotes">Wine Notes</a>
+                                    </li>
+                                    <li>Washington</li>
+                                    <li>Oregon</li>
+                                    <li data-role="list-divider">France</li>
+                                    <li>Burgundy</li>
+                                    <li>Bordeaux</li>
+                                    <li>Languedoc</li>
+                                    <li data-role="list-divider">Italy</li>
+                                    <li>Tuscany</li>
+                                    <li>Sicily</li>
+                                    <li>Lombardia</li>
+                                </ul>
+                                <h1>Rich content:</h1>
+                                <ul data-role="listview" data-inset="true">
+                                    <li data-role="list-divider">Open house on Monday, November 14</li>
+                                    <li>
+                                        <a href="#">
+                                            <h4>3bd/2br Condo</h4>
+                                            <p style="font-weight:bold">Address: </p>
+                                            <p class="ui-li-aside">Open at 12pm</p>
+                                            <p>735 albanese circle san jose</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <h4>To Do Item 2</h4>
+                                            <p style="font-weight:bold">To do item 2 summary</p>
+                                            <p class="ui-li-aside">Due at 2pm</p>
+                                            <p>This is the detail text for ToDo Item 2</p>
+                                        </a>
+                                    </li>
+                                    <li data-role="list-divider">Tuesday, November 15</li>
+                                    <li>
+                                        <a href="#">
+                                            <h4>To Do Item 3</h4>
+                                            <p style="font-weight:bold">To do item 3 summary</p>
+                                            <p class="ui-li-aside">Due at 10:30am</p>
+                                            <p>This is the detail text for ToDo Item 3</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <h4>To Do Item 4</h4>
+                                            <p style="font-weight:bold">To do item 4 summary</p>
+                                            <p>This is the detail text for ToDo Item 4</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                        </div>
+                    </section>
+
+    <!-- Grid -->
+    <section id="grid" data-role="page">
+                        <header data-role="header">
+                            <h1> VRaPP v2.0 </h1>
+                        </header>
+                        <div class="ui-content">
+                            <a href="#home" class="ui-btn ui-icon-arrow-t ui-btn-icon-top" data-transition="flip">Home</a>
+                            <h1>grids:</h1> 
+                            <div class="content" class="ui-content">
+                                <p>Two-column layout:</p>
+                                <div class="ui-grid-a">
+                                    <div class="ui-block-a"><p>This is block A</p></div>
+                                    <div class="ui-block-b"><p>This is block B</p></div>
+                                </div>
+                            </div>
+
+                            <div class="content" class="ui-content">
+                                <p>Three-column layout:</p>
+                                <div class="ui-grid-b">
+                                    <div class="ui-block-a"><p>This is block A</p></div>
+                                    <div class="ui-block-b"><p>This is block B</p></div>
+                                    <div class="ui-block-c"><p>This is block C</p></div>
+                                </div>
+                            </div>
+
+                            <div class="content" class="ui-content">
+                                <p>Four-column layout:</p>
+                                <div class="ui-grid-c">
+                                    <div class="ui-block-a"><p>This is block A</p></div>
+                                    <div class="ui-block-b"><p>This is block B</p></div>
+                                    <div class="ui-block-c"><p>This is block C</p></div>
+                                    <div class="ui-block-d"><p>This is block D</p></div>
+                                </div>
+                            </div>
+                            <div class="content" class="ui-content">
+                                <p>Five-column layout:</p>
+                                <div class="ui-grid-d">
+                                    <div class="ui-block-a"><p>This is block A</p></div>
+                                    <div class="ui-block-b"><p>This is block B</p></div>
+                                    <div class="ui-block-c"><p>This is block C</p></div>
+                                    <div class="ui-block-d"><p>This is block D</p></div>
+                                    <div class="ui-block-e"><p>This is block E</p></div>
+                                </div>
+                            </div>
+
+                            <div class="content" class="ui-content">
+                                <p>Three-column layout, multiple rows:</p>
+                                <div class="ui-grid-b">
+                                    <div class="ui-block-a"><p>This is block A</p></div>
+                                    <div class="ui-block-b"><p>This is block B</p></div>
+                                    <div class="ui-block-c"><p>This is block C</p></div>
+                                    <div class="ui-block-a"><p>This is block A</p></div>
+                                    <div class="ui-block-b"><p>This is block B</p></div>
+                                    <div class="ui-block-c"><p>This is block C</p></div>
+                                </div>
+                            </div>
+
+                            <form method="get" action="">
+                                <fieldset class="ui-grid-b">
+                                    <legend>Catastrophic Failure! Action?</legend>
+                                    <div class="ui-block-a"><button>Abort</button></div>
+                                    <div class="ui-block-b"><button>Retry</button></div>
+                                    <div class="ui-block-c"><button>Ignore</button></div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </section>
+
+    <!-- Collapsible -->
+    <section id="collapsible" data-role="page">
+                        <header data-role="header">
+                            <h1> VRaPP v2.0 </h1>
+                        </header>
+                        <div class="ui-content">
+                            <a href="#home" class="ui-btn ui-icon-arrow-l ui-btn-icon-top" data-transition="flip">Home</a>
+                            <h1>Collapsible blocks:</h1>
+                            <p>Collapsible block:</p>
+                            <div data-role="collapsible">
+                                <h1>I'm a collapsible block</h1>
+                                <p>I'm the content in the collapsible block.</p>
+                            </div>
+
+                            <p>Defaults to open:</p>
+                            <div data-role="collapsible" data-collapsed="false">
+                                <h1>I'm a collapsible block</h1>
+                                <p>I'm the content in the collapsible block.</p>
+                            </div>
+
+                            <p>Nested Collapsible blocks:</p>
+                            <div data-role="collapsible">
+                                <h1>I'm a collapsible block</h1>
+                                <p>I'm the content in the collapsible block.</p>
+                                <div data-role="collapsible">
+                                    <h1>I'm a nested collapsible block</h1>
+                                    <p>I'm the content in the nested collapsible block.</p>
+                                </div>
+                            </div>
+
+
+                            <h1>Collapsible sets:</h1>
+                            <p>Collapsible set with 4 sections:</p>
+                            <div data-role="collapsible-set" data-filter="true" data-filter-placeholder="Filter by Section">
+                                <div data-role="collapsible" data-collapsed="false">
+                                    <h1>Section 1</h1>
+                                    <p>I'm the content in section 1.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h1>Section 2</h1>
+                                    <p>I'm the content in section 2.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h1>Section 3</h1>
+                                    <p>I'm the content in section 3.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h1>Section 4</h1>
+                                    <p>I'm the content in section 4.</p>
+                                </div>
+                            </div>
+                         </div>
+                  </section>
+        <!-- Cordova reference, this is added to your app when it's built. -->
+        <script src="cordova.js"></script>
+        <script src="scripts/platformOverrides.js"></script>
+        <script src="scripts/index.js"></script>
+   
+</body>
+</html>
+

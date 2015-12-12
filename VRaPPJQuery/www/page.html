@@ -1,0 +1,61 @@
+﻿<?php if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) !== 'xmlhttprequest') { ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="themes/aForNightBforDay.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="scripts/JQuery.mobile-1.4.5/jquery.mobile.structure-1.4.5.css" />
+    <!-- replaces all header and footer outside of data-role="page" -->
+    <script src="scripts/JQuery.mobile-1.4.5/jquery-2.1.4.js"></script>
+    <script src="scripts/JQuery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+ 
+
+    <!-- phonegap stuff
+        - phonegapNavigationEnabled boolean, default: false
+    Replace calls to window.history.back with PhoneGap's navigation helper where it is available. This addresses navigation issues on page refresh in Android PhoneGap applications using jQuery Mobile.
+       -allowCrossDomainPages boolean, default: false
+    When jQuery Mobile attempts to load an external page, the request runs through $.mobile.loadPage(). This will only allow cross-domain requests if $.mobile.allowCrossDomainPages is set to true. Because the jQuery Mobile framework tracks what page is being viewed within the browser's location hash, it is possible for a cross-site scripting (XSS) attack to occur if the XSS code in question can manipulate the hash and set it to a cross-domain URL of its choice. This is the main reason that the default setting for $.mobile.allowCrossDomainPages is set to false. In PhoneGap apps that must "phone home" by loading assets off a remote server, both the $.support.cors AND $.mobile.allowCrossDomainPages must be set to true.
+         -->
+    <!-- VRaPPJQuery references -->
+    <link href="css/index.css" rel="stylesheet" />
+    <title>VRaPPJQuery</title>
+</head>
+<body>
+    
+    
+    <section id="firstpage" data-role="page">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <a href="../toolbar/" data-rel="back" class="ui-btn ui-btn-left ui-alt-icon ui-nodisc-icon ui-corner-all ui-btn-icon-notext ui-icon-carat-l">Back</a>
+            <h1>Fixed external header</h1>
+        </header><!-- /header -->
+        <div class="ui-content">
+            <p>This is page 1. There are two links: one to a page that is part of this site, one that is not.</p>
+            <a href="#" id="inject-toolbar" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Inject Header</a>
+            <p><a href="page.html">page.html</a></p>
+            <p><a href="http://app.yolocrew.com">Link to an external page</a></p>
+        </div>
+        <footer data-role="footer" data-position="fixed" data-theme="a">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="page.html" data-prefetch="true" data-transition="none">page.html</a></li>
+                    <li><a href="page-b.html" data-prefetch="true" data-transition="flip">Friends</a></li>
+                    <li><a href="page-c.html" data-prefetch="true" data-transition="turn">Albums</a></li>
+                    <li><a href="page-d.html" data-prefetch="true" data-transition="slide">Emails</a></li>
+                </ul>
+            </div><!-- /navbar -->
+        </footer><!-- /footer -->
+    </section>
+   
+    
+  
+</body>
+</html>

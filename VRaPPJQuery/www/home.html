@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <title>VRaPP</title>
+
+    <!-- VRaPP references -->
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+        <header>
+
+            <!-- Fixed bottom navbar-->
+            <nav class="navbar navbar-default navbar-fixed-bottom">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" id="brandBlink" href="#">
+                            <img alt="VRaPP" style="max-height: 30px;" src="images/WTH1200X210.png" class="img-responsive center-block" />
+                        </a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown-header">Services</li>
+                            <li><a href="#">Link</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">One more separated link</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-header">Settings</li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <form class="navbar-form navbar-right" role="search">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input class="form-control" type="text"
+                                           id="searchTerm" placeholder="Search">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default form-control" type="button">
+                                            Go!
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav> <!-- end bottom nav-->
+            <!-- fixed top navbar-->
+            <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #2f3646;">
+                <div class="container-fluid">
+
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <a href="#" id="brandTranslate" class="navbar-brand loadedFont">Yolocrew VR App</a>
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topNavbar" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="topNavbar">
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown-header">Services</li>
+                            <li><a href="#">Link</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">One more separated link</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav> <!-- end of fixed-top navbar -->
+        </header>
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="btn  col-xs-5 col-xs-offset-1" style="border-color: transparent;">
+                    <button type="button" class="btn btn-default shadowBlueAnimation" style="font-size: 15px; padding-top: 10px; border-color: transparent;">
+                        <span class="glyphicon glyphicon-camera" style="font-size: 35px;" aria-hidden="true"></span> <br>
+                        360° VR Photos<hr>
+
+                    </button>
+                </div>
+                <div class="btn col-xs-5" style="border-color: transparent;">
+                    <button type="button" class="btn btn-default shadowBlueAnimation" style="font-size: 15px; padding-top: 10px; border-color: transparent;">
+                        <span class="glyphicon glyphicon-picture" style="font-size: 35px;" aria-hidden="true"></span> <br>
+                        360° VR Videos <hr>
+                    </button>
+                </div>
+
+            </div>
+            <div class="btn col-xs-12" style="border-color: 			transparent;">
+                <button type="button" class="btn btn-default" style="font-size: 15px; padding-top: 10px; border-color: transparent;box-shadow: 3px 7px 10px blue;border-radius: 12px;">
+                    <span class="glyphicon glyphicon-picture" style="font-size: 35px;" aria-hidden="true"></span>
+                    Tutorials
+                    <span class="glyphicon glyphicon-picture" style="font-size: 35px;" aria-hidden="true"></span>
+                    <hr>
+                </button>
+            </div>
+
+            <!-- Trigger the modal with a button -->
+            <div class="btn col-xs-10 col-xs-offset-1 justified">
+                <button type="button" style="font-size: 15px; padding-top: 10px;  border-color: transparent; border-radius: 0px;" class="btn btn-default shadowRedAnimation" data-toggle="modal" data-target="#myModal">
+                    <span class="glyphicon glyphicon-envelope" style="font-size: 35px;" aria-hidden="true"></span>
+                    Contact Us
+                    <span class="glyphicon glyphicon-envelope" style="font-size: 30px;" aria-hidden="true"></span><hr>
+                </button>
+            </div>
+
+
+
+
+            <!-- Modal -->
+            <div id="myModal" class="modal fade modal-lg" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                    <h4 class="modal-title">Contact Us</h4>
+
+                    <form class="form-horizontal" role="form">
+
+                        <div class="form-group has-success has-feedback">
+                            <label class="control-label col-xs-2" for="inputName">Name:</label>
+                            <div class="col-xs-10">
+                                <input type="text" class="form-control" id="inputName" placeholder="Name">
+                                <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-xs-2" for="email">Email:</label>
+                            <div class="col-xs-10">
+                                <input type="email" class="form-control" id="email" placeholder="Enter email">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-xs-2" for="pwd">Password:</label>
+                            <div class="col-xs-10">
+                                <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-xs-4" for="selectSite">Your Company</label>
+                            <div class="col-xs-8">
+                                <select class="form-control" id="selectSite">
+                                    <option> Choose... </option>
+                                    <option> Akimax </option>
+                                    <option> Century21 </option>
+                                    <option> Mariposa </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <input class="btn btn-default pull-right" type="submit" value="submit" />
+
+                        <div class="form-group ">
+                            <div class="col-xs-offset-2 col-xs-10">
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-xs-offset-2 col-xs-10">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" checked> Remember me</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-offset-2 col-xs-10">
+                                <div class="checkbox">
+                                    <label><input id="inputAddList" type="checkbox" checked>Receive Email Updates</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div> <!-- ends modal -->
+        </div>
+
+        <!--********** scripts **********-->
+        <script src="js/jquery-2.1.4.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/script.js"></script>
+        <!-- script to not have to type out all the diff browsers for animations-->
+        <script src="http://www.kirupa.com/js/prefixfree.min.js"></script>
+        <!-- Cordova reference, this is added to your app when it's built. -->
+        <script src="cordova.js"></script>
+        <script src="scripts/platformOverrides.js"></script>
+        <script src="scripts/index.js"></script>
+</body>
+</html>
