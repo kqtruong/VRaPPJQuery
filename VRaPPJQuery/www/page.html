@@ -37,11 +37,15 @@
             <a href="../toolbar/" data-rel="back" class="ui-btn ui-btn-left ui-alt-icon ui-nodisc-icon ui-corner-all ui-btn-icon-notext ui-icon-carat-l">Back</a>
             <h1>Fixed external header</h1>
         </header><!-- /header -->
-        <div class="ui-content">
-            <p>This is page 1. There are two links: one to a page that is part of this site, one that is not.</p>
-            <a href="#" id="inject-toolbar" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Inject Header</a>
-            <p><a href="page.html">page.html</a></p>
-            <p><a href="http://app.yolocrew.com">Link to an external page</a></p>
+        <div class="ui-content" id="firstpageContent">
+            <input style="text" id="textInput" />
+            <button onclick="showPopup()"> ShowPopup</button>
+            <h1>capture picture</h1>
+            <button id="cameraBtn">Camera</button>
+            <img id="picture" />
+            
+            <p><a href="home.html">home.html</a></p>
+            <p><a href="index.html">index.html</a></p>
         </div>
         <footer data-role="footer" data-position="fixed" data-theme="a">
             <div data-role="navbar">
@@ -54,7 +58,10 @@
             </div><!-- /navbar -->
         </footer><!-- /footer -->
     </section>
-   
+    <!-- Cordova reference, this is added to your app when it's built. -->
+    <script src="cordova.js"></script>
+    <script src="scripts/platformOverrides.js"></script>
+    <script src="scripts/index.js"></script>
     
   
 </body>

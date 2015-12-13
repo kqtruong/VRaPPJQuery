@@ -14,6 +14,11 @@
         document.getElementById("capturePic").onclick = function () {
             navigator.camera.getPicture(addPictureToDiv, null, null);
         };
+
+        var button = document.getElementById("cameraBtn");
+        button.addEventListener("click",funtion() {
+            navigator.camera.getPicture(onSuccess,onFail);
+    })
         
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
     };
@@ -31,5 +36,18 @@
         currentPhotoDiv.innerHTML = "<img src='" + imageUri + "'/>";
     }
 
+    function showPopup() {
+        var input = document.getElementById("textInput").value;
+        alert(input);
+    }
+
+    function onSuccess(imageFile) {
+        var imgTag = document.getElementById("picture");
+        imgTag.src = imageFile;
+    }
+    
+    function onFail(message) {
+        alert(message);
+    }
 
 } )();

@@ -1,0 +1,195 @@
+/******************************************************
+Author: Khang Truong
+1. Universal Color Guide
+2. Header & Nav styles
+3. Main Body Content
+4. Sidebar Content
+5. Widget Content
+6. Footer Content
+7. Comments & Forms
+8. CSSReset
+9. Animations
+10. Custom Fonts
+******************************************************/
+
+
+/****************************
+*****************************
+1. Universal Color Guide
+
+	#05cb95 lime green - Link
+	#2effbb bright lime green - Link Hover
+	#2f3646 Dark gray - Background
+*****************************
+****************************/
+
+/****************************
+*****************************
+8. CSSReset
+*****************************
+****************************/
+
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, font, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		outline: 0;
+		font-weight: inherit;
+		font-style: inherit;
+		font-size: 100%;
+		font-family: inherit;
+		vertical-align: baseline;
+	}
+	/* remember to define focus styles! */
+		:focus {
+			outline: 0;
+	}
+	body {
+		line-height: 1;
+		color: black;
+		background: white;
+	}
+	ol, ul {
+		list-style: none;
+	}
+	/* tables still need 'cellspacing="0"' in the markup */
+	table {
+		border-collapse: separate;
+		border-spacing: 0;
+	}
+	caption, th, td {
+		text-align: left;
+		font-weight: normal;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: "";
+	}
+	blockquote, q {
+		quotes: "" "";
+	}
+
+/****************************
+*****************************
+9. Animations
+*****************************
+****************************/
+
+	.shadowBlueAnimation { /*animate box shadow */
+
+		-webkit-animation: shadowBlueAnimation 8s infinite; /* Chrome, Safari, Opera */
+	    animation: shadowBlueAnimation 8s infinite;
+		}
+
+		/* Chrome, Safari, Opera */
+		@-webkit-keyframes shadowBlueAnimation {
+	    0% {box-shadow: 1px 2px 5px blue;}
+	    50% {box-shadow: 3px 7px 10px red;}
+	    100% {box-shadow: 1px 2px 5px blue;}
+		}
+
+		/* Standard syntax */
+		@keyframes shadowBlueAnimation {
+	    0% {box-shadow: 1px 2px 5px blue;}
+	    50% {box-shadow: 3px 7px 10px red;}
+	    100% {box-shadow: 1px 2px 5px blue;}
+		}
+		/*end of animate box shadow */
+
+	.shadowRedAnimation { /*animate red box shadow */
+		-webkit-animation: shadowRedAnimation 1s infinite; /* Chrome, Safari, Opera */
+	    animation: shadowRedAnimation 1s infinite;
+		}
+
+		/* Chrome, Safari, Opera */
+		@-webkit-keyframes shadowRedAnimation {
+	    50% {box-shadow: 3px 7px 10px red;}
+		}
+
+		/* Standard syntax */
+		@keyframes shadowRedAnimation {
+	    50% {box-shadow: 3px 7px 10px red;}
+		}
+		/*end animate shadow red*/
+
+	#brandTranslate { /*move brand back and forth*/
+		-webkit-animation: brandTranslate 4s infinite; /* Chrome, Safari, Opera */
+		animate: brandTranslate 4s infinite;
+		position: relative;
+		}
+
+		/* Chrome, Safari, Opera */
+		@-webkit-keyframes brandTranslate {
+	    0% { transform: translate3d(0%, 0px, 0px);}
+	    50% { transform: translate3d(50%, 0px, 0px);}
+	    100% { transform: translate3d(0%, 0px, 0px);}
+		}
+
+		@keyframes brandTranslate {
+	    0% { transform: translate3d(0%, 0px, 0px);}
+	    50% { transform: translate3d(50%, 0px, 0px);}
+	    100% { transform: translate3d(0%, 0px, 0px);}
+		}
+
+	#brandBlink { /*move brand back and forth*/
+		-webkit-animation: brandBlink 4s infinite; /* Chrome, Safari, Opera */
+		animate: brandBlink 4s infinite;
+		animation-timing-function: ease-out;
+		position: relative;
+		}
+
+		/* Chrome, Safari, Opera */
+		@-webkit-keyframes brandBlink {
+	    0% { transform: translate3d(50%, 0px, 0px);color: #2f3646; }
+	    50% { transform: translate3d(50%, 0px, 0px);color: #fff; opacity: 0; }
+	    100% { transform: translate3d(50%, 0px, 0px);color: #2f3646; }
+		}
+
+		@keyframes brandBlink {
+	    0% { transform: translate3d(50%, 0px, 0px);color: #2f3646;}
+	    50% { transform: translate3d(50%, 0px, 0px);color: #fff; opacity: 0;}
+	    100% { transform: translate3d(50%, 0px, 0px);color: #2f3646;}
+		}
+	
+/****************************
+*****************************
+10. Custom Fonts
+*****************************
+****************************/
+
+	@font-face {
+		font-family: "loadedFont";
+		src: url('../fonts/loaded/loaded.ttf')
+		format('truetype');
+	}	
+
+	.loadedFont {
+		font-family: "loadedFont";
+	}
+
+	@font-face {
+		font-family: "raleway";
+		src: url('../fonts/raleway/Raleway-Regular.ttf')
+		format('truetype');
+	}	
+
+	.raleway {
+		font-family: "raleway";
+	}
+
+	@font-face {
+		font-family: "ralewayThin";
+		src: url('../fonts/raleway/Raleway-Thin.ttf')
+		format('truetype');
+	}	
+
+	.ralewayThin {
+		font-family: "ralewayThin";
+	}

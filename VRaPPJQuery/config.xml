@@ -3,7 +3,7 @@
   <name>VRaPPJQuery</name>
   <description>A blank project that uses Apache Cordova to help you build an app that targets multiple mobile platforms: Android, iOS, Windows, and Windows Phone.</description>
   <author href="http://cordova.io" email="dev@cordova.apache.org">Apache Cordova Team </author>
-  <content src="http://app.yolocrew.comh" />
+  <content src="index.html" />
   <access origin="*" />
   <vs:features />
   <preference name="SplashScreen" value="screen" />
@@ -105,5 +105,6 @@
     <splash src="res/screens/wp8/SplashScreenImage.jpg" width="480" height="800" />
   </platform>
   <vs:plugin name="cordova-plugin-camera" version="1.2.0" />
-  <access origin="http://app.yolocrew.com" />
+  <vs:plugin name="cordova-plugin-media-capture" version="1.1.0" />
+  <vs:plugin name="cordova-plugin-inappbrowser" version="1.1.0" />
 </widget>
